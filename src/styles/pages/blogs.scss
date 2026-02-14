@@ -1,0 +1,214 @@
+@use "../variables" as *;
+
+.blogs-page {
+    margin: 0 auto;
+
+    .blogs-header-card {
+        background-color: var(--dark-10);
+        border: 1px solid var(--dark-15);
+        border-radius: 20px;
+        padding: 20px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        @media (max-width: $breakpoint-md) {
+            flex-direction: column;
+            gap: 20px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--blue-95);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            background-color: var(--dark-08);
+            padding: 8px;
+            border-radius: 12px;
+            border: 1px solid var(--dark-15);
+
+            @media (max-width: $breakpoint-sm) {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .filter-btn {
+                padding: 10px 24px;
+                border: none;
+                background: transparent;
+                color: var(--gray-70);
+                font-family: var(--font-family-mono);
+                font-size: 0.85rem;
+                font-weight: 500;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+
+                &:hover {
+                    color: var(--blue-95);
+                }
+
+                &.active {
+                    background-color: var(--blue-60);
+                    color: var(--blue-95);
+                }
+            }
+        }
+    }
+
+    .blogs-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+
+        @media (max-width: $breakpoint-lg) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: $breakpoint-md) {
+            grid-template-columns: 1fr;
+        }
+
+        .blog-card {
+            background-color: var(--dark-10);
+            border: 1px solid var(--dark-15);
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+
+            &:hover {
+                border-color: var(--dark-25);
+                background-color: var(--dark-12);
+                transform: translateY(-5px);
+
+                .image-container img {
+                    transform: scale(1.05);
+                }
+            }
+
+            .image-container {
+                width: 100%;
+                aspect-ratio: 16/10;
+                overflow: hidden;
+                border-radius: 12px;
+                margin-bottom: 24px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.5s ease;
+                }
+            }
+
+            .blog-info {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                flex: 1;
+
+                .blog-meta {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    margin-bottom: 8px;
+
+                    .meta-item {
+                        font-family: var(--font-family-mono);
+                        font-size: 0.75rem;
+                        color: var(--gray-40);
+                        background-color: var(--dark-08);
+                        padding: 6px 12px;
+                        border-radius: 20px;
+                        border: 1px solid var(--dark-15);
+
+                        strong {
+                            color: var(--gray-70);
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+                .blog-title {
+                    font-size: 1.25rem;
+                    font-weight: 600;
+                    color: var(--blue-95);
+                    margin: 0;
+                    text-transform: uppercase;
+                    line-height: 1.4;
+                }
+
+                .blog-desc {
+                    font-size: 0.95rem;
+                    color: var(--gray-70);
+                    line-height: 1.6;
+                    margin: 0;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+            }
+
+            .read-more-btn {
+                margin-top: 24px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                cursor: pointer;
+                color: var(--gray-70);
+                transition: all 0.3s ease;
+                width: fit-content;
+
+                .icon-circle {
+                    width: 44px;
+                    height: 44px;
+                    background-color: var(--dark-08);
+                    border: 1px solid var(--dark-15);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: all 0.4s ease;
+
+                    .arrow-icon {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+
+                span {
+                    font-family: var(--font-family-mono);
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    letter-spacing: 0.1em;
+                }
+
+                &:hover {
+                    color: var(--blue-60);
+                    .icon-circle {
+                        background-color: var(--blue-60);
+                        color: var(--blue-95);
+                        border-color: var(--blue-60);
+                        transform: rotate(45deg);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -4,6 +4,7 @@ import Services from "../pages/services/Services";
 import Projects from "../pages/projects/Projects";
 import About from "../pages/about/About";
 import Blogs from "../pages/blogs/Blogs";
+import BlogDetail from "../pages/blogs/BlogDetail";
 import ContactUs from "../pages/contact-us/ContactUs";
 
 export const paths = {
@@ -13,6 +14,7 @@ export const paths = {
   projects: '/projects',
   about: '/about',
   blogs: '/blogs',
+  blogDetail: '/blogs/:id',
   contactUs: '/contact-us'
 };
 
@@ -40,6 +42,11 @@ export const routes = [
   {
     path: paths.blogs,
     element: <Blogs />,
+    isPublic: true,
+  },
+  {
+    path: paths.blogDetail,
+    element: <BlogDetail />,
     isPublic: true,
   },
   {
