@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+    --blue-60: #0068C7;
+    --blue-65: #73A5D4;
+    --blue-70: #8CB5DA;
+    --blue-80: #B2CCE4;
+    --blue-90: #D4E2EF;
+    --blue-95: #E5EEF6;
+    --blue-97: #F4F3FB;
+    --blue-99: #FBFBFE;
+    
+    --dark-06: #0F0F0F;
+    --dark-10: #1A1A1A;
+    --dark-12: #1F1F1F;
+    --dark-15: #262626;
+    --dark-20: #333333;
+    --dark-25: #404040;
+    --dark-30: #4D4D4D;
+    --dark-35: #595959;
+    
+    --gray-40: #676665;
+    --gray-50: #81807E;
+    --gray-70: #B3B3B2;
+    --gray-80: #CACACE;
+    --gray-90: #E6E6E6;
+    --gray-95: #F2F2F2;
+    --gray-97: #F7F7F7;
+    --gray-99: #FCFCFC;
+    
+    // Font
+    --font-family-flex: "Roboto Flex", sans-serif;
+    // $font-weight-flex: regular,medium,semi-bold,bold;
+    --font-family-mono: "Roboto Mono", monospace;
+    // $font-weight-mono: regular,medium;
+    --font-size-base: 1rem;
+    --font-size-sm: 0.875rem;
+    --font-size-lg: 1.125rem;
+}
+
+// Breakpoints
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+
+
+// Transitions
+$transition-base: all 0.3s ease-in-out;
+$transition-fast: all 0.15s ease-in-out;

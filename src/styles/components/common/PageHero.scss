@@ -1,0 +1,255 @@
+@import '../../../styles/variables.scss';
+
+.page-hero {
+    color: white;
+    font-family: var(--font-family-flex);
+
+    .hero-content {
+        display: grid;
+        grid-template-columns: minmax(0, 2.5fr) minmax(350px, 1fr);
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .hero-card {
+        background-color: var(--dark-10);
+        border-radius: 24px;
+        border: 1px solid var(--dark-15);
+        transition: $transition-base;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .hero-card.left-card {
+        position: relative;
+        padding: 4rem 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .card-content {
+            .hero-title {
+                color: var(--blue-95);
+                font-size: 4rem;
+                font-weight: 500;
+                line-height: 1.1;
+                margin-bottom: 1.2rem;
+                letter-spacing: -0.02em;
+                text-transform: uppercase;
+
+                .title-row {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 1.5rem;
+                    flex-wrap: wrap;
+                    margin-bottom: 2rem;
+                    width: 100%;
+
+                    .cta-button {
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        cursor: pointer;
+                        text-transform: none;
+                        letter-spacing: normal;
+                        font-family: var(--font-family-flex);
+
+                        &:hover {
+                            .icon-circle {
+                                background-color: var(--blue-60);
+                                transform: scale(1.05);
+                                color: white;
+                            }
+
+                            .cta-text {
+                                color: white;
+                            }
+                        }
+
+                        .icon-circle {
+                            width: 60px;
+                            height: 60px;
+                            background-color: var(--blue-60);
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: #000;
+                            cursor: pointer;
+                            transition: $transition-base;
+                            z-index: 2;
+
+                            .arrow-icon {
+                                width: 44px;
+                                height: 44px;
+                                position: relative;
+                                z-index: 3;
+                            }
+                        }
+
+                        .cta-text {
+                            font-size: 1.125rem;
+                            font-weight: 600;
+                            color: var(--blue-60);
+                            transition: $transition-base;
+                        }
+                    }
+                }
+
+                .highlight-text {
+                    color: white;
+                    display: block;
+                }
+            }
+
+            .hero-description {
+                color: var(--gray-40);
+                font-size: 1.125rem;
+                line-height: 1.6;
+                margin-bottom: 3.2rem;
+                max-width: 90%;
+            }
+        }
+
+        .ticker-wrapper {
+            background-color: var(--dark-06);
+            border: none;
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            overflow: hidden;
+            white-space: nowrap;
+            margin-top: auto;
+            width: fit-content;
+            max-width: 100%;
+
+            .ticker {
+                display: inline-block;
+                animation: ticker-animation 30s linear infinite;
+
+                .ticker-item {
+                    font-family: var(--font-family-mono);
+                    font-size: 0.975rem;
+                    color: var(--gray-50);
+                    letter-spacing: 0.1em;
+                    margin: 0 1rem;
+                }
+
+                .ticker-dot {
+                    color: var(--blue-60);
+                    font-size: 1.25rem;
+                    margin: 0 0.5rem;
+                }
+            }
+        }
+    }
+
+    .hero-card.right-card {
+        display: flex;
+        flex-direction: column;
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            min-height: 500px;
+            flex: 1;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 500px;
+                object-fit: cover;
+                filter: brightness(0.8);
+                transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s ease;
+            }
+
+            .image-overlay {
+                position: absolute;
+                bottom: 2rem;
+                left: 2rem;
+                right: 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                z-index: 2;
+                transition: transform 0.4s ease;
+
+                .view-blog-btn {
+                    background: transparent;
+                    border: none;
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    font-weight: 500;
+                    transition: $transition-base;
+
+                    .icon-circle {
+                        width: 44px;
+                        height: 44px;
+                        background: white;
+                        color: black;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    }
+
+                    &:hover {
+                        .icon-circle {
+                            transform: rotate(45deg) scale(1.1);
+                        }
+                    }
+                }
+
+                .category-tag {
+                    background: rgba(var(--gray-50), 0.1);
+                    backdrop-filter: blur(10px);
+                    padding: 0.75rem 1.25rem;
+                    border-radius: 12px;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    font-size: 0.875rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    transition: all 0.4s ease;
+                }
+            }
+
+            &:hover {
+                img {
+                    transform: scale(1.1);
+                    filter: brightness(0.9);
+                }
+
+                .image-overlay {
+                    transform: translateY(-8px);
+                }
+            }
+        }
+
+        .project-info {
+            padding: 2.5rem 2rem;
+            background-color: var(--dark-10);
+            
+            .project-name {
+                color: var(--blue-95);
+                font-size: 1.75rem;
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+                text-transform: uppercase;
+            }
+
+            .project-category {
+                color: var(--gray-70);
+                font-size: 1.125rem;
+            }
+        }
+    }
+}
+
+@keyframes ticker-animation {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
