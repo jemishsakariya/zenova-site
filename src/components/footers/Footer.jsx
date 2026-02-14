@@ -1,6 +1,6 @@
 import "../../styles/components/footer.scss";
 import { Instagram, Twitter, Linkedin, Github } from "lucide-react";
-import Faq from "../faq/Faq";
+import Faq from "../faq/faq";
 
 const Footer = () => {
     return (
