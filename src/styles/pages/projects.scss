@@ -1,0 +1,100 @@
+@use '../variables.scss' as *;
+
+.projects-page {
+    .features-section {
+        background-color: var(--dark-06);
+        border: 1px solid var(--dark-15);
+        border-radius: 24px;
+        padding: 20px;
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .section-header-card {
+            background-color: var(--dark-10);
+            border: 1px solid var(--dark-12);
+            border-radius: 12px;
+            padding: 40px 50px;
+
+            h2 {
+                font-size: 2.2rem;
+                font-weight: 600;
+                color: white;
+                margin: 0;
+                text-transform: uppercase;
+                letter-spacing: -0.01em;
+            }
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+
+            @media (max-width: $breakpoint-xl) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (max-width: $breakpoint-md) {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background-color: var(--dark-10);
+            border: 1px solid var(--dark-12);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            transition: $transition-base;
+
+            &:hover {
+                border-color: var(--dark-25);
+                background-color: var(--dark-12);
+                transform: translateY(-5px);
+            }
+
+            .icon-box {
+                width: 48px;
+                height: 48px;
+                background-color: var(--dark-12);
+                border: 1px solid var(--dark-20);
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--blue-60);
+
+                svg {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+
+            .feature-content {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                h3 {
+                    font-size: 1.25rem;
+                    font-weight: 600;
+                    color: white;
+                    margin: 0;
+                    text-transform: uppercase;
+                    line-height: 1.4;
+                }
+
+                p {
+                    font-size: 0.95rem;
+                    color: var(--gray-70);
+                    line-height: 1.6;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

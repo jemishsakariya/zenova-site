@@ -1,4 +1,4 @@
-import PageHero from '../../components/common/PageHero/PageHero';
+import PageHero from '../../components/PageHero/PageHero';
 import { Palette, Smartphone, Code2, Megaphone, ArrowUpRight, ArrowRight } from 'lucide-react';
 import '../../styles/pages/services.scss';
 import Testimonials from '../../components/testimonials/Testimonials';

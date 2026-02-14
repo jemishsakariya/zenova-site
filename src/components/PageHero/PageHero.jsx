@@ -1,9 +1,10 @@
 import React from 'react';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
-import '../../../styles/components/common/PageHero.scss';
+import '../../styles/components/common/PageHero.scss';
 
 const PageHero = ({
     title = "OUR DIGITAL SOLUTIONS",
+    highlightText = 'THAT DRIVE SUCCESS',
     description = "At Zenova, we offer a comprehensive suite of digital solutions designed to propel your business to new heights in the digital realm. With a team of skilled professionals, cutting-edge technologies, and a passion for innovation",
     buttonText = "START A PROJECT",
     marqueeItems = [
@@ -33,7 +34,7 @@ const PageHero = ({
                                     <span className="cta-text">{buttonText}</span>
                                 </div>
                             </div>
-                            <span className="highlight-text">THAT DRIVE SUCCESS</span>
+                            <span className="highlight-text">{highlightText}</span>
                         </h1>
                         <p className="hero-description">{description}</p>
                     </div>
