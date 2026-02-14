@@ -1,5 +1,5 @@
-@import './variables.scss';
-@import 'bootstrap/scss/bootstrap';
+@use './variables.scss' as *;
+@use 'bootstrap/scss/bootstrap';
 
 * {
   margin: 0;
