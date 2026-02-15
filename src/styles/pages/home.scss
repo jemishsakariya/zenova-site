@@ -65,6 +65,10 @@
                         margin-bottom: 0.5rem;
                         width: 100%;
 
+                        @include mobile {
+                            gap: 0.4rem;
+                        }
+
                         .cta-button {
                             display: flex;
                             align-items: center;
