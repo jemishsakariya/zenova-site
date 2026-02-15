@@ -1,4 +1,5 @@
 @use '../variables.scss' as *;
+@use '../mixins.scss' as *;
 
 .projects-page {
     .features-section {
@@ -11,19 +12,33 @@
         flex-direction: column;
         gap: 20px;
 
+        @include mobile {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 16px;
+        }
+
         .section-header-card {
             background-color: var(--dark-10);
-            border: 1px solid var(--dark-12);
+            border: 1px solid var(--dark-15);
             border-radius: 12px;
             padding: 40px 50px;
+
+            @include mobile {
+                padding: 30px 20px;
+            }
 
             h2 {
                 font-size: 2.2rem;
                 font-weight: 600;
-                color: white;
+                color: var(--blue-95);
                 margin: 0;
                 text-transform: uppercase;
                 letter-spacing: -0.01em;
+
+                @include mobile {
+                    font-size: 1.75rem;
+                }
             }
         }
 
@@ -43,7 +58,7 @@
 
         .feature-card {
             background-color: var(--dark-10);
-            border: 1px solid var(--dark-12);
+            border: 1px solid var(--dark-15);
             border-radius: 20px;
             padding: 40px;
             display: flex;
@@ -51,8 +66,13 @@
             gap: 30px;
             transition: $transition-base;
 
+            @include mobile {
+                padding: 30px 20px;
+                gap: 20px;
+            }
+
             &:hover {
-                border-color: var(--dark-25);
+                border-color: var(--blue-60);
                 background-color: var(--dark-12);
                 transform: translateY(-5px);
             }
@@ -82,7 +102,7 @@
                 h3 {
                     font-size: 1.25rem;
                     font-weight: 600;
-                    color: white;
+                    color: var(--blue-95);
                     margin: 0;
                     text-transform: uppercase;
                     line-height: 1.4;

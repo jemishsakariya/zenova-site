@@ -1,4 +1,5 @@
 @use './variables.scss' as *;
+@use './mixins.scss' as *;
 @use 'bootstrap/scss/bootstrap';
 
 * {
@@ -8,24 +9,56 @@
 }
 
 body {
-  color: white;
-  background-color: black;
-  margin: 0 2.5dvw;
+  color: var(--gray-40);
+  background-color: var(--dark-06);
+  font-family: var(--font-family-flex);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  @include container;
+  flex: 1;
 }
 
 button {
-    border: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
-a{
-    text-decoration: none;
-    color: var(--blue-95);
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-p{
-    margin: 0;
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Responsive Typography
+html {
+  font-size: 16px;
+
+  @include mobile {
+    font-size: 14px;
+  }
 }

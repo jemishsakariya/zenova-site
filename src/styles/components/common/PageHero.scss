@@ -1,7 +1,8 @@
 @use "../../variables" as *;
+@use "../../mixins" as *;
 
 .page-hero {
-    color: white;
+    color: var(--blue-95);
     font-family: var(--font-family-flex);
 
     .hero-content {
@@ -9,6 +10,14 @@
         grid-template-columns: minmax(0, 2.5fr) minmax(350px, 1fr);
         gap: 20px;
         align-items: stretch;
+
+        @include tablet {
+            grid-template-columns: 1fr;
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
     }
 
     .hero-card {
@@ -27,22 +36,30 @@
         flex-direction: column;
         justify-content: space-between;
 
+        @include mobile {
+            padding: 2.5rem 1.5rem;
+        }
+
         .card-content {
             .hero-title {
                 color: var(--blue-95);
-                font-size: 4rem;
+                font-size: 3.5rem;
                 font-weight: 500;
-                line-height: 1.1;
-                margin-bottom: 1.2rem;
-                letter-spacing: -0.02em;
+                line-height: 1.15;
+                margin-bottom: 2rem;
+                letter-spacing: -0.01em;
                 text-transform: uppercase;
 
+                @include mobile {
+                    font-size: 2.5rem;
+                }
+
                 .title-row {
-                    display: inline-flex;
+                    display: flex;
                     align-items: center;
                     gap: 1.5rem;
                     flex-wrap: wrap;
-                    margin-bottom: 2rem;
+                    margin-bottom: 0.5rem;
                     width: 100%;
 
                     .cta-button {
@@ -53,37 +70,35 @@
                         text-transform: none;
                         letter-spacing: normal;
                         font-family: var(--font-family-flex);
+                        padding: 5px;
 
                         &:hover {
                             .icon-circle {
-                                background-color: var(--blue-60);
+                                background-color: var(--blue-65);
                                 transform: scale(1.05);
-                                color: white;
                             }
 
                             .cta-text {
-                                color: white;
+                                color: var(--blue-65);
                             }
                         }
 
                         .icon-circle {
-                            width: 60px;
-                            height: 60px;
+                            width: 56px;
+                            height: 56px;
                             background-color: var(--blue-60);
                             border-radius: 50%;
                             display: flex;
                             align-items: center;
                             justify-content: center;
-                            color: #000;
+                            color: var(--dark-06);
                             cursor: pointer;
                             transition: $transition-base;
-                            z-index: 2;
+                            flex-shrink: 0;
 
                             .arrow-icon {
-                                width: 44px;
-                                height: 44px;
-                                position: relative;
-                                z-index: 3;
+                                width: 32px;
+                                height: 32px;
                             }
                         }
 
@@ -97,24 +112,29 @@
                 }
 
                 .highlight-text {
-                    color: white;
+                    color: var(--blue-95);
                     display: block;
                 }
             }
 
             .hero-description {
-                color: var(--gray-40);
+                color: var(--gray-70);
                 font-size: 1.125rem;
                 line-height: 1.6;
-                margin-bottom: 3.2rem;
+                margin-bottom: 3rem;
                 max-width: 90%;
+
+                @include mobile {
+                    font-size: 1rem;
+                    margin-bottom: 2rem;
+                }
             }
         }
 
         .ticker-wrapper {
-            background-color: var(--dark-06);
-            border: none;
-            border-radius: 10px;
+            background-color: var(--dark-12);
+            border: 1px solid var(--dark-15);
+            border-radius: 12px;
             padding: 1rem 1.5rem;
             overflow: hidden;
             white-space: nowrap;
@@ -128,7 +148,7 @@
 
                 .ticker-item {
                     font-family: var(--font-family-mono);
-                    font-size: 0.975rem;
+                    font-size: 0.9rem;
                     color: var(--gray-50);
                     letter-spacing: 0.1em;
                     margin: 0 1rem;
@@ -150,23 +170,27 @@
         .image-container {
             position: relative;
             width: 100%;
-            min-height: 500px;
+            min-height: 400px;
             flex: 1;
             overflow: hidden;
 
+            @include mobile {
+                min-height: 300px;
+            }
+
             img {
                 width: 100%;
-                height: 500px;
+                height: 100%;
                 object-fit: cover;
-                filter: brightness(0.8);
+                filter: brightness(0.85);
                 transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s ease;
             }
 
             .image-overlay {
                 position: absolute;
-                bottom: 2rem;
-                left: 2rem;
-                right: 2rem;
+                bottom: 1.5rem;
+                left: 1.5rem;
+                right: 1.5rem;
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-end;
@@ -176,20 +200,20 @@
                 .view-blog-btn {
                     background: transparent;
                     border: none;
-                    color: white;
+                    color: var(--white-100, #fff);
                     display: flex;
                     align-items: center;
                     gap: 0.75rem;
-                    font-size: 1rem;
+                    font-size: 0.9rem;
                     cursor: pointer;
                     font-weight: 500;
                     transition: $transition-base;
 
                     .icon-circle {
-                        width: 44px;
-                        height: 44px;
-                        background: white;
-                        color: black;
+                        width: 40px;
+                        height: 40px;
+                        background: var(--blue-60);
+                        color: var(--dark-06);
                         border-radius: 50%;
                         display: flex;
                         align-items: center;
@@ -205,37 +229,37 @@
                 }
 
                 .category-tag {
-                    background: rgba(var(--gray-50), 0.1);
-                    backdrop-filter: blur(10px);
-                    padding: 0.75rem 1.25rem;
-                    border-radius: 12px;
-                    border: 1px solid rgba(255, 255, 255, 0.2);
-                    font-size: 0.875rem;
+                    background: rgba(var(--dark-15), 0.2);
+                    backdrop-filter: blur(8px);
+                    padding: 0.5rem 1rem;
+                    border-radius: 8px;
+                    border: 1px solid var(--dark-20);
+                    font-size: 0.75rem;
                     text-transform: uppercase;
                     letter-spacing: 0.05em;
-                    transition: all 0.4s ease;
+                    color: var(--blue-60);
                 }
             }
 
             &:hover {
                 img {
-                    transform: scale(1.1);
-                    filter: brightness(0.9);
+                    transform: scale(1.05);
+                    filter: brightness(1);
                 }
 
                 .image-overlay {
-                    transform: translateY(-8px);
+                    transform: translateY(-5px);
                 }
             }
         }
 
         .project-info {
-            padding: 2.5rem 2rem;
+            padding: 2rem;
             background-color: var(--dark-10);
             
             .project-name {
                 color: var(--blue-95);
-                font-size: 1.75rem;
+                font-size: 1.5rem;
                 font-weight: 700;
                 margin-bottom: 0.5rem;
                 text-transform: uppercase;
@@ -243,7 +267,7 @@
 
             .project-category {
                 color: var(--gray-70);
-                font-size: 1.125rem;
+                font-size: 1rem;
             }
         }
     }

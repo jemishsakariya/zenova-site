@@ -169,7 +169,7 @@ const BlogDetail = () => {
                             <div className="left-side">
                                 <Twitter size={16} /> @wadewarren
                             </div>
-                            <ArrowRight size={14} style={{ transform: 'rotate(-45deg)' }} />
+                            <ArrowRight size={14} className="arrow-right-icon" />
                         </a>
                     </div>
 

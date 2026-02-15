@@ -146,16 +146,8 @@ const ContactUs = () => {
                             </div>
                             <div className="form-group">
                                 <label>PHONE NUMBER</label>
-                                <div className="phone-input-row">
-                                    <div className="country-box">
-                                        <div className="flag-container">
-                                            <img src="https://flagcdn.com/w80/in.png" alt="India" />
-                                        </div>
-                                        <ChevronDown className="chevron-icon" />
-                                    </div>
-                                    <div className="input-wrapper">
-                                        <input type="tel" placeholder="Enter Phone Number" />
-                                    </div>
+                                <div className="input-wrapper">
+                                    <input type="tel" placeholder="Enter Phone Number" />
                                 </div>
                             </div>
                             <div className="form-group full-width message-group">

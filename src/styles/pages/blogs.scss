@@ -1,4 +1,5 @@
 @use "../variables" as *;
+@use "../mixins" as *;
 
 .blogs-page {
     margin: 0 auto;
@@ -13,10 +14,10 @@
         align-items: center;
         margin-bottom: 20px;
 
-        @media (max-width: $breakpoint-md) {
+        @include mobile {
             flex-direction: column;
             gap: 20px;
-            padding: 30px;
+            padding: 25px 20px;
             text-align: center;
         }
 
@@ -27,19 +28,26 @@
             margin: 0;
             text-transform: uppercase;
             letter-spacing: -0.01em;
+
+            @include mobile {
+                font-size: 2rem;
+            }
         }
 
         .filter-buttons {
             display: flex;
             gap: 10px;
-            background-color: var(--dark-08);
+            background-color: var(--dark-12);
             padding: 8px;
             border-radius: 12px;
             border: 1px solid var(--dark-15);
 
-            @media (max-width: $breakpoint-sm) {
+            @include mobile {
                 flex-wrap: wrap;
                 justify-content: center;
+                gap: 5px;
+                padding: 5px;
+                width: 100%;
             }
 
             .filter-btn {
@@ -52,9 +60,16 @@
                 font-weight: 500;
                 border-radius: 8px;
                 cursor: pointer;
-                transition: all 0.3s ease;
+                transition: $transition-base;
                 text-transform: uppercase;
                 letter-spacing: 0.05em;
+
+                @include mobile {
+                    padding: 8px 15px;
+                    font-size: 0.75rem;
+                    flex: 1;
+                    min-width: 100px;
+                }
 
                 &:hover {
                     color: var(--blue-95);
@@ -62,7 +77,7 @@
 
                 &.active {
                     background-color: var(--blue-60);
-                    color: var(--blue-95);
+                    color: var(--dark-06);
                 }
             }
         }
@@ -77,7 +92,7 @@
             grid-template-columns: repeat(2, 1fr);
         }
 
-        @media (max-width: $breakpoint-md) {
+        @include mobile {
             grid-template-columns: 1fr;
         }
 
@@ -88,10 +103,14 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
-            transition: all 0.3s ease;
+            transition: $transition-base;
+
+            @include mobile {
+                padding: 15px;
+            }
 
             &:hover {
-                border-color: var(--dark-25);
+                border-color: var(--blue-60);
                 background-color: var(--dark-12);
                 transform: translateY(-5px);
 
@@ -124,14 +143,14 @@
                 .blog-meta {
                     display: flex;
                     flex-wrap: wrap;
-                    gap: 15px;
+                    gap: 10px;
                     margin-bottom: 8px;
 
                     .meta-item {
                         font-family: var(--font-family-mono);
                         font-size: 0.75rem;
-                        color: var(--gray-40);
-                        background-color: var(--dark-08);
+                        color: var(--gray-50);
+                        background-color: var(--dark-12);
                         padding: 6px 12px;
                         border-radius: 20px;
                         border: 1px solid var(--dark-15);
@@ -150,6 +169,10 @@
                     margin: 0;
                     text-transform: uppercase;
                     line-height: 1.4;
+
+                    @include mobile {
+                        font-size: 1.15rem;
+                    }
                 }
 
                 .blog-desc {
@@ -178,7 +201,7 @@
                 .icon-circle {
                     width: 44px;
                     height: 44px;
-                    background-color: var(--dark-08);
+                    background-color: var(--dark-12);
                     border: 1px solid var(--dark-15);
                     border-radius: 50%;
                     display: flex;
@@ -203,7 +226,7 @@
                     color: var(--blue-60);
                     .icon-circle {
                         background-color: var(--blue-60);
-                        color: var(--blue-95);
+                        color: var(--dark-06);
                         border-color: var(--blue-60);
                         transform: rotate(45deg);
                     }

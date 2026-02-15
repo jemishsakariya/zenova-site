@@ -1,54 +1,103 @@
+@use '../variables.scss' as *;
+@use '../mixins.scss' as *;
+
 .headers-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin: 20px 0;
-    padding: 14px 24px;
-
+    padding: 12px 24px;
     background: var(--dark-10);
-    border: 1px solid var(--dark-12); 
-    border-radius: 10px;
+    border: 1px solid var(--dark-15); 
+    border-radius: 12px;
+    position: relative;
+    z-index: 1000;
+
+    @include mobile {
+        padding: 10px 15px;
+        margin: 10px 0;
+    }
 
     .headers-logo {
         font-family: var(--font-family-flex);
         font-size: 24px;
-        text-align: center;
-        color: var(--blue-90);
+        font-weight: 700;
+        color: var(--blue-60);
+        z-index: 1001;
+    }
+
+    .nav-wrapper {
+        @include mobile {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            height: 100dvh;
+            background: var(--dark-10);
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            z-index: 1000;
+            padding: 80px 20px;
+
+            &.open {
+                right: 0;
+            }
+        }
     }
 
     .buttons-container {
         display: flex;
-        gap: 10px;
+        gap: 8px;
+
+        @include mobile {
+            flex-direction: column;
+            width: 100%;
+            gap: 15px;
+        }
 
         .nav-button {
             display: flex;
             align-items: center;
             background: var(--dark-06);
-            border-radius: 10px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: var(--transition-base);
+            transition: $transition-base;
+            border: 1px solid transparent;
             
             .text {
-                padding: 16px 18px;
+                padding: 12px 18px;
                 font-family: var(--font-family-mono);
                 font-weight: 500;
                 font-size: 14px;
                 text-align: center;
                 text-transform: uppercase;
-                color: var(--gray-50);
+                color: var(--blue-97);
+                white-space: nowrap;
+
+                @include mobile {
+                    width: 100%;
+                    text-align: left;
+                    font-size: 16px;
+                }
             }
             
-            .text.active {
-                 color: var(--blue-80);
+            &.active {
+                 background: var(--dark-15);
+                 border-color: var(--dark-20);
+                 .text {
+                     color: var(--blue-60);
+                 }
             }
 
-            &:hover {
-                background-color: var(--dark-15); // Subtle hover effect
+            &:hover:not(.active) {
+                background-color: var(--dark-12);
+                border-color: var(--dark-15);
             }
             
             &.primary {
                 background: var(--blue-60);
+                border-color: var(--blue-60);
                 
                 .text {
                     color: var(--dark-06);
@@ -57,7 +106,37 @@
                 &:hover {
                     background-color: var(--blue-65);
                 }
+
+                @include mobile {
+                    .text {
+                        text-align: center;
+                    }
+                }
             }
         }
+    }
+
+    .mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--gray-40);
+        cursor: pointer;
+        z-index: 1001;
+
+        @include mobile {
+            display: block;
+        }
+    }
+
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(4px);
+        z-index: 999;
     }
 }

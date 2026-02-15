@@ -1,4 +1,5 @@
 @use '../variables.scss' as *;
+@use '../mixins.scss' as *;
 
 .services-page {
     .services-container {
@@ -7,6 +8,12 @@
         border-radius: 24px;
         padding: 20px;
         margin: 20px 0;
+
+        @include mobile {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 16px;
+        }
     }
 
     .services-main-grid {
@@ -17,10 +24,14 @@
 
     .section-header-card {
         background-color: var(--dark-10);
-        border: 1px solid var(--dark-12);
+        border: 1px solid var(--dark-15);
         border-radius: 12px;
         padding: 30px 40px;
         margin-bottom: 10px;
+
+        @include mobile {
+            padding: 20px 25px;
+        }
 
         h2 {
             font-size: 2rem;
@@ -29,6 +40,10 @@
             margin: 0;
             text-transform: uppercase;
             letter-spacing: -0.01em;
+
+            @include mobile {
+                font-size: 1.5rem;
+            }
         }
     }
 
@@ -44,7 +59,7 @@
 
     .service-info-card {
         background-color: var(--dark-10);
-        border: 1px solid var(--dark-12);
+        border: 1px solid var(--dark-15);
         border-radius: 12px;
         padding: 40px;
         display: flex;
@@ -52,11 +67,23 @@
         justify-content: space-between;
         min-height: 380px;
 
+        @include mobile {
+            padding: 30px 20px;
+            min-height: auto;
+            gap: 30px;
+        }
+
         .card-top {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 30px;
+            gap: 15px;
+
+            @include mobile {
+                flex-direction: column;
+                margin-bottom: 20px;
+            }
 
             .title-group {
                 display: flex;
@@ -73,6 +100,7 @@
                     align-items: center;
                     justify-content: center;
                     color: var(--blue-60);
+                    flex-shrink: 0;
                 }
 
                 h3 {
@@ -81,6 +109,10 @@
                     color: var(--blue-95);
                     margin: 0;
                     text-transform: uppercase;
+
+                    @include mobile {
+                        font-size: 1.25rem;
+                    }
                 }
             }
 
@@ -97,6 +129,7 @@
                 font-weight: 500;
                 text-transform: uppercase;
                 transition: $transition-base;
+                white-space: nowrap;
 
                 .arrow-icon {
                     width: 18px;
@@ -105,8 +138,11 @@
                 }
 
                 &:hover {
-                    background-color: var(--dark-20);
-                    color: var(--blue-60);
+                    background-color: var(--blue-60);
+                    color: var(--dark-06);
+                    .arrow-icon {
+                        color: var(--dark-06);
+                    }
                 }
             }
         }
@@ -116,6 +152,10 @@
             font-size: 1rem;
             line-height: 1.6;
             margin-bottom: 30px;
+
+            @include mobile {
+                margin-bottom: 0;
+            }
         }
 
         .price-tag {
@@ -126,6 +166,10 @@
             align-self: flex-end;
             margin-top: auto;
             
+            @include mobile {
+                align-self: flex-start;
+            }
+
             span {
                 color: var(--gray-70);
                 font-weight: 400;
@@ -137,11 +181,15 @@
 
     .service-projects-card {
         background-color: var(--dark-10);
-        border: 1px solid var(--dark-12);
+        border: 1px solid var(--dark-15);
         border-radius: 12px;
         padding: 40px;
         display: flex;
         flex-direction: column;
+
+        @include mobile {
+            padding: 30px 20px;
+        }
 
         .projects-header {
             display: flex;
@@ -167,7 +215,7 @@
                 transition: $transition-base;
 
                 &:hover {
-                    color: var(--blue-95);
+                    color: var(--blue-60);
                 }
             }
         }
@@ -178,7 +226,7 @@
             gap: 20px;
             flex: 1;
 
-            @media (max-width: $breakpoint-sm) {
+            @include mobile {
                 grid-template-columns: 1fr;
             }
         }
@@ -199,7 +247,7 @@
             .project-overlay {
                 position: absolute;
                 inset: 0;
-                background: rgba(0,0,0,0.4);
+                background: rgba(0,0,0,0.5);
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -210,22 +258,22 @@
                     display: flex;
                     align-items: center;
                     gap: 10px;
-                    background: rgba(255,255,255,0.1);
+                    background: rgba(var(--dark-06-rgb), 0.8);
                     backdrop-filter: blur(10px);
-                    border: 1px solid rgba(255,255,255,0.2);
+                    border: 1px solid var(--dark-20);
                     padding: 8px 16px;
                     border-radius: 50px;
-                    color: var(--blue-95);
+                    color: var(--gray-90);
                     font-size: 0.75rem;
                     text-transform: uppercase;
                     scale: 0.9;
-                    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    transition: all 0.3s ease;
 
                     .icon-circle {
                         width: 28px;
                         height: 28px;
-                        background: var(--blue-95);
-                        color: black;
+                        background: var(--blue-60);
+                        color: var(--dark-06);
                         border-radius: 50%;
                         display: flex;
                         align-items: center;
@@ -236,7 +284,7 @@
 
             &:hover {
                 img {
-                    transform: scale(1.1);
+                    transform: scale(1.05);
                 }
                 .project-overlay {
                     opacity: 1;

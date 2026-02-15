@@ -31,23 +31,25 @@
     
     // Font
     --font-family-flex: "Roboto Flex", sans-serif;
-    // $font-weight-flex: regular,medium,semi-bold,bold;
     --font-family-mono: "Roboto Mono", monospace;
-    // $font-weight-mono: regular,medium;
     --font-size-base: 1rem;
     --font-size-sm: 0.875rem;
     --font-size-lg: 1.125rem;
+
+    // Layout
+    --container-padding: 2rem;
+    --section-margin: 5rem;
 }
 
 // Breakpoints
-$breakpoint-xs: 0;
+$breakpoint-xs: 375px;
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
-$breakpoint-xxl: 1400px;
+$breakpoint-xxl: 1440px;
 
-
+$container-max-width: 1440px;
 
 // Transitions
 $transition-base: all 0.3s ease-in-out;
